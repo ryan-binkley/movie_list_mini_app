@@ -1,9 +1,16 @@
 import { knexToDB } from "./dbConnection.js";
 
-// const getSomething = () => {
-//     return knexToDB
-//         .select('*')
-//         .from('tablname');
-// }
+const getUsers = () => {
+    return knexToDB
+        .select('*')
+        .from('users');
+}
 
-// module.exports = { getSomething };
+const getUserByID = (inputID) => {
+    return knexToDB
+        .select('*')
+        .from('users')
+        .where({user_id:inputID});
+}
+
+export { getUsers, getUserByID };

@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 
 // Methods from Controller.js
-import {} from "./db/Controller.js";
+import { getUsers, getUserByID } from "./db/Controller.js";
 
 
 const app = express();
@@ -16,7 +16,31 @@ app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}. - Console Message`);
 })
 
-
+// ***** Home directory *****
 app.get("/", (req, res) => {
     res.send("Welcome to the backend home page!");
   });
+
+
+// ***** Users table *****
+app.get("/users", (req, res) => {
+    getUsers()
+        .then(data => {
+            res.send(data);
+        })
+        .catch(err => {
+            res.send(err);
+        })
+  });
+
+  app.get("/users/:id", (req, res) => {
+    getUserByID(req.params.id)
+        .then(data => {
+            res.send(data);
+        })
+        .catch(err => {
+            res.send(err);
+        })
+  });
+
+  // ***** Users table *****
