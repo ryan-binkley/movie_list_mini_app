@@ -1,5 +1,8 @@
 import { knexToDB } from "./dbConnection.js";
 
+
+// ***** Users table *****
+
 const getUsers = () => {
     return knexToDB
         .select('*')
@@ -13,4 +16,20 @@ const getUserByID = (inputID) => {
         .where({user_id:inputID});
 }
 
-export { getUsers, getUserByID };
+// ***** Movies table *****
+
+const getMovies = () => {
+    return knexToDB
+        .select('*')
+        .from('movies');
+}
+
+const getMovieByID = (inputID) => {
+    return knexToDB
+        .select('*')
+        .from('movies')
+        .where({movie_id:inputID});
+}
+
+
+export { getUsers, getUserByID, getMovies, getMovieByID };
