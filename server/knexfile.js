@@ -8,40 +8,11 @@ export default {
   development: {
     client: 'postgresql',
     connection: {
-      filename: './dev.sqlite3'
+      host: 'localhost',
+      password: 'docker',
+      user: 'postgres',
+      port: '5000',
+      database: 'movie_db'
     }
   },
-
-  staging: {
-    client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: 'knex_migrations'
-    }
-  },
-
-  production: {
-    client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: 'knex_migrations'
-    }
-  }
-
 };
